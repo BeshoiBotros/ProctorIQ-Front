@@ -8,23 +8,49 @@ function TeacherLayout() {
       <div className="drawer drawer-open">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
-          <div className="p-4">
+          <div className="bg-neutral-content min-h-screen overflow-x-auto">
             <Outlet />
           </div>
         </div>
 
-        <div className="drawer-side is-drawer-close:overflow-visible">
+        <div className="drawer-side is-drawer-close:overflow-visible min-h-[100%]">
           <label
             htmlFor="my-drawer-4"
             aria-label="close sidebar"
             className="drawer-overlay"
           ></label>
-          <div className="is-drawer-close:w-14 is-drawer-open:w-64 bg-base-200 flex flex-col items-start min-h-full bg-neutral text-neutral-content">
+          <div className="is-drawer-close:w-17 is-drawer-open:w-64 bg-base-200 flex flex-col items-start min-h-full bg-neutral text-neutral-content">
             {/* Sidebar content here */}
             <ul className="menu w-full grow">
+              {/* button to open/close drawer */}
+              <div
+                className="m-2 is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                data-tip="Open"
+              >
+                <label
+                  htmlFor="my-drawer-4"
+                  className="btn btn-ghost btn-circle drawer-button is-drawer-open:rotate-y-180"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    strokeLinejoin="round"
+                    strokeLinecap="round"
+                    strokeWidth="2"
+                    fill="none"
+                    stroke="currentColor"
+                    className="inline-block size-4 my-1.5"
+                  >
+                    <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
+                    <path d="M9 4v16"></path>
+                    <path d="M14 10l2 2l-2 2"></path>
+                  </svg>
+                </label>
+              </div>
               <h2 className="text-2xl font-bold mb-4 text-neutral-content tracking-tight is-drawer-close:hidden">
                 Teacher
               </h2>
+
               {/* list item */}
               <li>
                 <NavLink
@@ -44,39 +70,6 @@ function TeacherLayout() {
               </li>
 
               {/* list item */}
-
-              <li>
-                <NavLink
-                  to={"as"}
-                  className={({ isActive }) =>
-                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
-                      isActive
-                        ? "bg-gray-800 text-white"
-                        : "text-gray-400 hover:bg-gray-700 hover:text-white"
-                    }`
-                  }
-                  data-tip="New Exam"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className="lucide lucide-file-plus-icon lucide-file-plus"
-                  >
-                    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
-                    <path d="M14 2v4a2 2 0 0 0 2 2h4" />
-                    <path d="M9 15h6" />
-                    <path d="M12 18v-6" />
-                  </svg>
-                  <span className="is-drawer-close:hidden">New Exam</span>
-                </NavLink>
-              </li>
 
               <li>
                 <NavLink
@@ -108,40 +101,6 @@ function TeacherLayout() {
                     <circle cx="9" cy="7" r="4" />
                   </svg>
                   <span className="is-drawer-close:hidden">Assign Exams</span>
-                </NavLink>
-              </li>
-
-              <li>
-                <NavLink
-                  to={"as"}
-                  className={({ isActive }) =>
-                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
-                      isActive
-                        ? "bg-gray-800 text-white"
-                        : "text-gray-400 hover:bg-gray-700 hover:text-white"
-                    }`
-                  }
-                  data-tip="Manage Exams"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    className="lucide lucide-list-checks-icon lucide-list-checks"
-                  >
-                    <path d="M13 5h8" />
-                    <path d="M13 12h8" />
-                    <path d="M13 19h8" />
-                    <path d="m3 17 2 2 4-4" />
-                    <path d="m3 7 2 2 4-4" />
-                  </svg>
-                  <span className="is-drawer-close:hidden">Manage Exams</span>
                 </NavLink>
               </li>
 
@@ -241,32 +200,6 @@ function TeacherLayout() {
                 </NavLink>
               </li>
             </ul>
-
-            {/* button to open/close drawer */}
-            <div
-              className="m-2 is-drawer-close:tooltip is-drawer-close:tooltip-right"
-              data-tip="Open"
-            >
-              <label
-                htmlFor="my-drawer-4"
-                className="btn btn-ghost btn-circle drawer-button is-drawer-open:rotate-y-180"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  strokeLinejoin="round"
-                  strokeLinecap="round"
-                  strokeWidth="2"
-                  fill="none"
-                  stroke="currentColor"
-                  className="inline-block size-4 my-1.5"
-                >
-                  <path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z"></path>
-                  <path d="M9 4v16"></path>
-                  <path d="M14 10l2 2l-2 2"></path>
-                </svg>
-              </label>
-            </div>
           </div>
         </div>
       </div>
