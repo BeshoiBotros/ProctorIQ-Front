@@ -7,7 +7,7 @@ interface TeacherDashBoardStatProps{
 
 function TeacherDashBoardStat(props : TeacherDashBoardStatProps) {
   return (
-    <div className="stats shadow">
+    <div className="stats shadow md:w-1/3 sm:w-full">
       <div className="stat">
         <div className="stat-title"> {props.title} </div>
         <div className="stat-value"> {props.value} </div>

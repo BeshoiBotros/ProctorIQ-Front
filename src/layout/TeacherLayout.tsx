@@ -1,5 +1,5 @@
 import { LayoutDashboard } from "lucide-react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 
 function TeacherLayout() {
   return (
@@ -8,7 +8,9 @@ function TeacherLayout() {
       <div className="drawer drawer-open">
         <input id="my-drawer-4" type="checkbox" className="drawer-toggle" />
         <div className="drawer-content">
-          <Outlet />
+          <div className="p-4">
+            <Outlet />
+          </div>
         </div>
 
         <div className="drawer-side is-drawer-close:overflow-visible">
@@ -25,21 +27,34 @@ function TeacherLayout() {
               </h2>
               {/* list item */}
               <li>
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                <NavLink
+                  to={"/teacher/"}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                      isActive
+                        ? "bg-gray-800 text-white"
+                        : "text-gray-400 hover:bg-gray-700 hover:text-white"
+                    }`
+                  }
                   data-tip="Homepage"
                 >
                   <LayoutDashboard />
                   <span className="is-drawer-close:hidden">Dashboard</span>
-                </button>
+                </NavLink>
               </li>
 
               {/* list item */}
 
               <li>
-                <Link
-                  to={"/t"}
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                <NavLink
+                  to={"as"}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                      isActive
+                        ? "bg-gray-800 text-white"
+                        : "text-gray-400 hover:bg-gray-700 hover:text-white"
+                    }`
+                  }
                   data-tip="New Exam"
                 >
                   <svg
@@ -60,12 +75,19 @@ function TeacherLayout() {
                     <path d="M12 18v-6" />
                   </svg>
                   <span className="is-drawer-close:hidden">New Exam</span>
-                </Link>
+                </NavLink>
               </li>
 
               <li>
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                <NavLink
+                  to={"as"}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                      isActive
+                        ? "bg-gray-800 text-white"
+                        : "text-gray-400 hover:bg-gray-700 hover:text-white"
+                    }`
+                  }
                   data-tip="Assign Exams"
                 >
                   <svg
@@ -86,12 +108,19 @@ function TeacherLayout() {
                     <circle cx="9" cy="7" r="4" />
                   </svg>
                   <span className="is-drawer-close:hidden">Assign Exams</span>
-                </button>
+                </NavLink>
               </li>
 
               <li>
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                <NavLink
+                  to={"as"}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                      isActive
+                        ? "bg-gray-800 text-white"
+                        : "text-gray-400 hover:bg-gray-700 hover:text-white"
+                    }`
+                  }
                   data-tip="Manage Exams"
                 >
                   <svg
@@ -113,12 +142,19 @@ function TeacherLayout() {
                     <path d="m3 7 2 2 4-4" />
                   </svg>
                   <span className="is-drawer-close:hidden">Manage Exams</span>
-                </button>
+                </NavLink>
               </li>
 
               <li>
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                <NavLink
+                  to={"/askdg"}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                      isActive
+                        ? "bg-gray-800 text-white"
+                        : "text-gray-400 hover:bg-gray-700 hover:text-white"
+                    }`
+                  }
                   data-tip="Results"
                 >
                   <svg
@@ -141,12 +177,19 @@ function TeacherLayout() {
                   <span className="is-drawer-close:hidden">
                     Students Results
                   </span>
-                </button>
+                </NavLink>
               </li>
 
               <li>
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                <NavLink
+                  to={"as"}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                      isActive
+                        ? "bg-gray-800 text-white"
+                        : "text-gray-400 hover:bg-gray-700 hover:text-white"
+                    }`
+                  }
                   data-tip="Proctor"
                 >
                   <svg
@@ -164,12 +207,19 @@ function TeacherLayout() {
                     <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
                   </svg>
                   <span className="is-drawer-close:hidden">Proctor Mode</span>
-                </button>
+                </NavLink>
               </li>
 
               <li>
-                <button
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                <NavLink
+                  to={"as"}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 rounded-md transition ${
+                      isActive
+                        ? "bg-gray-800 text-white"
+                        : "text-gray-400 hover:bg-gray-700 hover:text-white"
+                    }`
+                  }
                   data-tip="Settings"
                 >
                   <svg
@@ -188,7 +238,7 @@ function TeacherLayout() {
                     <circle cx="12" cy="12" r="3" />
                   </svg>
                   <span className="is-drawer-close:hidden">Settings</span>
-                </button>
+                </NavLink>
               </li>
             </ul>
 
