@@ -1,7 +1,16 @@
 import { Search, EllipsisVertical, Plus } from "lucide-react";
 import type React from "react";
+import { useEffect, useRef } from "react";
+import AddStudentModal from "./AddStudentModat";
 
 const StudentsView: React.FC = () => {
+
+  const addStudentDialog = useRef<HTMLDialogElement>(null);
+
+  useEffect(()=>{
+    addStudentDialog.current = document.getElementById('add_student_modal') as HTMLDialogElement;
+  }, []);
+
   return (
     <div className="container mx-auto my-5">
       <div className="flex mx-5">
@@ -19,9 +28,14 @@ const StudentsView: React.FC = () => {
               </label>
             </form>
             <div>
-              <button className="btn btn-ghost">
+              <button className="btn btn-ghost" onClick={()=>{
+                if(addStudentDialog.current){
+                  addStudentDialog.current.showModal();
+                }
+              }}>
                 <Plus />
               </button>
+              <AddStudentModal />
             </div>
           </div>
           {/* Desktop Table */}
@@ -42,7 +56,7 @@ const StudentsView: React.FC = () => {
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
-                        <div className="mask mask-squircle h-12 w-12">
+                        <div className="mask mask-circle h-12 w-12">
                           <img
                             src="https://img.daisyui.com/images/profile/demo/2@94.webp"
                             alt="Avatar Tailwind CSS Component"
@@ -101,18 +115,18 @@ const StudentsView: React.FC = () => {
           <div className="md:hidden space-y-4 min-w-[210px]">
             <div className="card bg-base-100 shadow shadow-xl border border-solid border-gray-300">
               <div className="card-body">
-                <h3 className="card-title">Physics Exam</h3>
+                <h3 className="card-title">Hazem Abdellnasser</h3>
                 <div className="space-y-2">
                   <div>
-                    <span className="font-semibold">Duration: </span> 90 min
+                    <span className="font-semibold">Phone Number: </span> <a href="tel:+">01550120304</a>
                   </div>
                   <div>
-                    <span className="font-semibold">Start Date:</span>{" "}
-                    01-11-2025 08:30
+                    <span className="font-semibold">Address:</span>{" "}
+                    Al-Sharqia
                   </div>
                   <div>
-                    <span className="font-semibold">End Date:</span> 01-11-2025
-                    09:30
+                    <span className="font-semibold">Birth Of Date:</span> 
+                    
                   </div>
                   <div>
                     <span className="font-semibold">Status: </span>
