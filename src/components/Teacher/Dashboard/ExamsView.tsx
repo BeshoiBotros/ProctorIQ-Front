@@ -1,7 +1,16 @@
 import type React from "react";
 import { Search, EllipsisVertical, Plus } from "lucide-react";
+import AddExamModal from "./AddExamModal";
+import { useEffect, useRef } from "react";
+
 
 const ExamsView: React.FC = () => {
+  const addExamDialogRef = useRef<HTMLDialogElement>(null);
+
+  useEffect(()=>{
+    addExamDialogRef.current = document.getElementById('add_exam_modal') as HTMLDialogElement;
+  }, []);
+
   return (
     <div className="container mx-auto">
       <div className="flex mx-5">
@@ -19,9 +28,14 @@ const ExamsView: React.FC = () => {
               </label>
             </form>
             <div>
-              <button className="btn btn-ghost">
+              <button className="btn btn-ghost" onClick={()=>{
+                if(addExamDialogRef.current){
+                  addExamDialogRef.current.showModal();
+                }
+              }}>
                 <Plus />
               </button>
+              <AddExamModal />
             </div>
           </div>
           {/* Desktop Table */}
